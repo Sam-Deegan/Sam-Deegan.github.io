@@ -136,6 +136,7 @@
         .project-card:nth-child(2) { animation-delay: 0.2s; }
         .project-card:nth-child(3) { animation-delay: 0.3s; }
         .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
 
         .project-card:hover {
             border-color: var(--accent-teal);
@@ -179,19 +180,19 @@
             width: fit-content;
         }
 
-        .project-status.in-progress {
+        .project-status.under-review {
             background-color: rgba(59, 130, 246, 0.1);
             color: var(--accent-blue);
             border: 1px solid var(--accent-blue);
         }
 
-        .project-status.completed {
+        .project-status.working {
             background-color: rgba(34, 197, 94, 0.1);
             color: #22c55e;
             border: 1px solid #22c55e;
         }
 
-        .project-status.forthcoming {
+        .project-status.pipeline {
             background-color: rgba(168, 85, 247, 0.1);
             color: #d8b4fe;
             border: 1px solid #d8b4fe;
@@ -333,7 +334,7 @@
     <!-- Page Header -->
     <div class="page-header">
         <h1><span>🔬</span>Research Projects</h1>
-        <p>Active and completed research initiatives on banking, credit, and financial stability.</p>
+        <p>Overview of research projects on banking, financial stability, and spatial transmission mechanisms.</p>
     </div>
 
     <!-- Content -->
@@ -343,80 +344,104 @@
             <div class="project-card">
                 <div class="project-image">🏦</div>
                 <div class="project-content">
-                    <h3 class="project-title">Bank Failures Still Matter</h3>
-                    <div class="project-status in-progress">In Progress</div>
+                    <h3 class="project-title">Failure in the Margins: Local Exposure to Non-local Bank Distress</h3>
+                    <div class="project-status under-review">Under Review (2026)</div>
                     <p class="project-description">
-                        Examination of the real economic effects of bank failures using novel administrative data on firm-bank credit relationships. Exploits staggered failure of regional banks as a natural experiment to identify causal effects on credit access, investment, and employment.
+                        Job market paper examining how local economies are affected when non-local banks with local branch operations fail. Uses FDIC data on US bank failures (1976-2016) to identify causal effects on credit supply and real economic outcomes through spatial branch networks.
                     </p>
                     <div class="project-tags">
                         <span class="project-tag">Banking</span>
+                        <span class="project-tag">Spatial Economics</span>
                         <span class="project-tag">Credit Supply</span>
                         <span class="project-tag">Causal Inference</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link">Paper</a>
-                        <a href="#" class="project-link">Code</a>
+                        <a href="#" class="project-link">Slides</a>
+                        <a href="#" class="project-link">Data</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Stress Tests -->
+            <div class="project-card">
+                <div class="project-image">📊</div>
+                <div class="project-content">
+                    <h3 class="project-title">Stress Tests on Main Street: Tracing Holding-Company Exposure Through Branch Networks</h3>
+                    <div class="project-status under-review">Under Review (2026)</div>
+                    <p class="project-description">
+                        Examines how stress test results for bank holding companies transmit through branch networks to affect local lending and real economic outcomes. Uses Federal Reserve stress test data linked to branch-level lending outcomes.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Stress Testing</span>
+                        <span class="project-tag">Credit Transmission</span>
+                        <span class="project-tag">Bank Branches</span>
+                        <span class="project-tag">Lending Channel</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Paper</a>
                         <a href="#" class="project-link">Slides</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 2: Credit Supply Shocks -->
+            <!-- Project 3: Consolidation -->
             <div class="project-card">
-                <div class="project-image">💳</div>
+                <div class="project-image">🏛️</div>
                 <div class="project-content">
-                    <h3 class="project-title">Credit Supply Shocks and Firm Dynamics</h3>
-                    <div class="project-status completed">Completed</div>
+                    <h3 class="project-title">Consolidation-Driven De-Branching: Overlap Effects in Quasi-Exogenous Bank M&A</h3>
+                    <div class="project-status under-review">Under Review (2026)</div>
                     <p class="project-description">
-                        Analysis of heterogeneous effects of credit supply contractions on European firms during the sovereign debt crisis. Matched bank-firm data reveals differential impacts by firm size, leverage, and geographic concentration.
+                        Studies how bank mergers and acquisitions lead to branch closures in overlapping markets. Exploits exogenous variation in regulatory approval timing to identify causal impact on local banking competition and credit availability.
                     </p>
                     <div class="project-tags">
-                        <span class="project-tag">Credit Markets</span>
-                        <span class="project-tag">Firm Heterogeneity</span>
-                        <span class="project-tag">Financial Crisis</span>
+                        <span class="project-tag">Banking Consolidation</span>
+                        <span class="project-tag">Bank Mergers</span>
+                        <span class="project-tag">Branch Networks</span>
+                        <span class="project-tag">Competition</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">Preprint</a>
-                        <a href="#" class="project-link">Data</a>
+                        <a href="#" class="project-link">Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Corporate Lending -->
+            <div class="project-card">
+                <div class="project-image">💼</div>
+                <div class="project-content">
+                    <h3 class="project-title">Bank Stress Tests and Corporate Lending</h3>
+                    <div class="project-status working">Working Paper (2025)</div>
+                    <p class="project-description">
+                        Joint work with Yota Deli, Oana Peia, and Iftekhar Hasan examining how bank stress testing frameworks affect corporate lending decisions. Analyzes portfolio composition effects using matched bank-firm data across multiple jurisdictions.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Corporate Lending</span>
+                        <span class="project-tag">Stress Tests</span>
+                        <span class="project-tag">Bank Regulation</span>
+                        <span class="project-tag">Risk Management</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">PDF</a>
                         <a href="#" class="project-link">Code</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3: Deposits and Lending -->
+            <!-- Project 5: Lending Decay -->
             <div class="project-card">
-                <div class="project-image">🏪</div>
+                <div class="project-image">📉</div>
                 <div class="project-content">
-                    <h3 class="project-title">Deposits and Bank Lending Behavior</h3>
-                    <div class="project-status in-progress">In Progress</div>
+                    <h3 class="project-title">Heterogeneity in Bank-Specific Lending Decay</h3>
+                    <div class="project-status pipeline">In Progress (2026)</div>
                     <p class="project-description">
-                        Investigation of the relationship between deposit dynamics and bank lending using granular consumer banking data. Examines amplification of lending contractions for banks facing deposit outflows and examines heterogeneous impacts by bank characteristics.
+                        Early-stage project with Steven Ongena studying how bank lending relationships decay over time and whether this decay differs by bank and borrower characteristics. Investigates distance, relationship length, and creditworthiness effects.
                     </p>
                     <div class="project-tags">
-                        <span class="project-tag">Banking Microdata</span>
-                        <span class="project-tag">Deposits</span>
-                        <span class="project-tag">Lending Channel</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Working Paper</a>
-                        <a href="#" class="project-link">Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4: Bank Stress Networks -->
-            <div class="project-card">
-                <div class="project-image">🕸️</div>
-                <div class="project-content">
-                    <h3 class="project-title">Bank Stress Transmission Networks</h3>
-                    <div class="project-status forthcoming">Forthcoming</div>
-                    <p class="project-description">
-                        Network analysis of bank stress transmission through interbank lending and real economy channels in the Euro Area. Uses novel supervisory data and network models to identify systemic nodes and contagion patterns.
-                    </p>
-                    <div class="project-tags">
-                        <span class="project-tag">Network Analysis</span>
-                        <span class="project-tag">Systemic Risk</span>
-                        <span class="project-tag">Interconnectedness</span>
+                        <span class="project-tag">Bank Relationships</span>
+                        <span class="project-tag">Lending Dynamics</span>
+                        <span class="project-tag">Heterogeneous Effects</span>
+                        <span class="project-tag">Financial Stability</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="project-link">Proposal</a>
