@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching - Sam Deegan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-dark: #0a1628;
+            --navy-light: #111a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent-teal: #2dd4bf;
+            --accent-blue: #3b82f6;
+            --border-color: #1e293b;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--navy-dark);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--navy-dark);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent-teal);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent-teal);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0a1628 0%, #111a2e 50%, #0a2f4f 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-header h1 {
+            color: var(--text-primary);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .page-header h1 span {
+            font-size: 2.5rem;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* Content Area */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            color: var(--accent-teal);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        /* Teaching Philosophy */
+        .philosophy-box {
+            background-color: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .philosophy-box h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .philosophy-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Course Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background-color: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.75rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .course-card:nth-child(1) { animation-delay: 0.1s; }
+        .course-card:nth-child(2) { animation-delay: 0.2s; }
+        .course-card:nth-child(3) { animation-delay: 0.3s; }
+        .course-card:nth-child(4) { animation-delay: 0.4s; }
+        .course-card:nth-child(5) { animation-delay: 0.5s; }
+        .course-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .course-card:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.15);
+        }
+
+        .course-code {
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background-color: rgba(59, 130, 246, 0.1);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .course-title {
+            color: var(--text-primary);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .course-level {
+            display: inline-block;
+            background-color: rgba(45, 212, 191, 0.1);
+            color: var(--accent-teal);
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            border: 1px solid var(--accent-teal);
+        }
+
+        .course-role {
+            color: var(--accent-teal);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .course-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .course-semester {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Section spacing */
+        .courses-section {
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050d14;
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--navy-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--accent-teal);
+            border: 2px solid var(--accent-teal);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-teal);
+            color: var(--navy-dark);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-title {
+                font-size: 1.05rem;
+            }
+
+            .course-info {
+                flex-direction: column;
+                gap: 0.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Bio</a></li>
+            <li><a href="papers.html">Papers</a></li>
+            <li><a href="talks.html">Talks</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="teaching.html" class="active">Teaching</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1><span>🎓</span>Teaching</h1>
+        <p>Courses taught and co-developed at University College Dublin and other institutions.</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Teaching Philosophy -->
+        <div class="philosophy-box">
+            <h3>📚 Teaching Philosophy</h3>
+            <p>
+                I believe that effective economics teaching should combine rigorous theoretical foundations with practical applications and real-world examples. I emphasize the development of critical thinking skills and encourage students to question assumptions and explore the limitations of economic models. My approach prioritizes active learning through problem sets, discussion, and collaborative projects. I aim to create an inclusive classroom environment where all students feel empowered to engage with challenging material and develop their analytical capabilities.
+            </p>
+        </div>
+
+        <!-- Current Courses -->
+        <div class="courses-section">
+            <h2 class="section-title">Current Courses (2024-2025)</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-code">ECO 203</div>
+                    <h3 class="course-title">Macroeconomics II</h3>
+                    <div class="course-info">
+                        <span class="course-level">Intermediate</span>
+                        <span class="course-role">Teaching Assistant</span>
+                    </div>
+                    <p class="course-description">
+                        Intermediate macroeconomic theory covering business cycles, inflation, unemployment, and monetary policy. Students develop computational and analytical skills in solving macro models.
+                    </p>
+                    <div class="course-semester">Spring 2025 • 120 students</div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-code">ECO 320</div>
+                    <h3 class="course-title">Financial Economics</h3>
+                    <div class="course-info">
+                        <span class="course-level">Advanced</span>
+                        <span class="course-role">Teaching Assistant</span>
+                    </div>
+                    <p class="course-description">
+                        Advanced course on financial markets, asset pricing, corporate finance, and banking. Covers both theoretical models and empirical applications with real market data.
+                    </p>
+                    <div class="course-semester">Spring 2025 • 45 students</div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-code">ECO 101</div>
+                    <h3 class="course-title">Introduction to Econometrics</h3>
+                    <div class="course-info">
+                        <span class="course-level">Intermediate</span>
+                        <span class="course-role">Teaching Assistant</span>
+                    </div>
+                    <p class="course-description">
+                        Introduction to econometric methods with emphasis on causal inference and research design. Students apply methods to real economic data using R and Stata.
+                    </p>
+                    <div class="course-semester">Fall 2024 • 90 students</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Past Courses -->
+        <div class="courses-section">
+            <h2 class="section-title">Past Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-code">ECO 201</div>
+                    <h3 class="course-title">Microeconomic Principles</h3>
+                    <div class="course-info">
+                        <span class="course-level">Introductory</span>
+                        <span class="course-role">Teaching Assistant</span>
+                    </div>
+                    <p class="course-description">
+                        Foundational microeconomics covering consumer choice, production, market structures, and welfare economics. Emphasized graphical and mathematical exposition.
+                    </p>
+                    <div class="course-semester">2023-2024 • Multiple semesters</div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-code">ECO 202</div>
+                    <h3 class="course-title">Macroeconomic Principles</h3>
+                    <div class="course-info">
+                        <span class="course-level">Introductory</span>
+                        <span class="course-role">Teaching Assistant</span>
+                    </div>
+                    <p class="course-description">
+                        Introductory macroeconomics covering national accounts, fiscal and monetary policy, and international economics. Included contemporary policy case studies.
+                    </p>
+                    <div class="course-semester">2023-2024 • Multiple semesters</div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-code">ECO 350</div>
+                    <h3 class="course-title">Capstone: Banking & Finance Seminar</h3>
+                    <div class="course-info">
+                        <span class="course-level">Advanced</span>
+                        <span class="course-role">Co-Lecturer</span>
+                    </div>
+                    <p class="course-description">
+                        Specialized seminar on contemporary banking and financial stability issues. Students completed original research projects on financial system topics.
+                    </p>
+                    <div class="course-semester">Spring 2024 • 25 students</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mentoring -->
+        <div class="courses-section">
+            <h2 class="section-title">Mentoring & Supervision</h2>
+            <div class="philosophy-box">
+                <h3>🤝 Student Mentoring</h3>
+                <p>
+                    I regularly mentor undergraduate honours students and dissertation projects, providing guidance on research design, data analysis, and writing. I have supervised 8+ honours dissertations covering topics in macroeconomics, labor economics, and financial stability. I also serve as an informal mentor for graduate students and post-docs, helping them develop research agendas and navigate the academic job market. My door is always open for students seeking advice on coursework, career development, or general questions about economics and academia.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#" class="social-icon" title="Twitter">𝕏</a>
+            <a href="#" class="social-icon" title="LinkedIn">in</a>
+            <a href="#" class="social-icon" title="GitHub">⚙️</a>
+        </div>
+        <p>&copy; 2025 Sam Deegan. Powered by Hugo Academic.</p>
+    </footer>
+
+    <script>
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

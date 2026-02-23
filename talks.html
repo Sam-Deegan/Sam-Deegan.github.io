@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks & Presentations - Sam Deegan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-dark: #0a1628;
+            --navy-light: #111a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent-teal: #2dd4bf;
+            --accent-blue: #3b82f6;
+            --border-color: #1e293b;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--navy-dark);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--navy-dark);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--accent-teal);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent-teal);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #0a1628 0%, #111a2e 50%, #0a2f4f 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-header h1 {
+            color: var(--text-primary);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .page-header h1 span {
+            font-size: 2.5rem;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* Content Area */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .year-section {
+            margin-bottom: 3rem;
+        }
+
+        .year-header {
+            color: var(--accent-teal);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        .talk-card {
+            background-color: var(--navy-light);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+        }
+
+        .talk-card:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(45, 212, 191, 0.15);
+        }
+
+        .talk-image {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 3rem;
+            min-height: 200px;
+        }
+
+        .talk-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .talk-title {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .talk-event {
+            color: var(--accent-teal);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .talk-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .talk-date {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .talk-location {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .talk-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .talk-footer {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .talk-badge {
+            background-color: rgba(45, 212, 191, 0.1);
+            color: var(--accent-teal);
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--accent-teal);
+        }
+
+        .talk-badge.conference {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .talk-badge.seminar {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #a78bfa;
+            border-color: #a78bfa;
+        }
+
+        .talk-link {
+            color: var(--accent-teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(45, 212, 191, 0.3);
+        }
+
+        .talk-link:hover {
+            background-color: rgba(45, 212, 191, 0.15);
+            border-color: var(--accent-teal);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050d14;
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--navy-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--accent-teal);
+            border: 2px solid var(--accent-teal);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-teal);
+            color: var(--navy-dark);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .talk-card {
+                grid-template-columns: 1fr;
+            }
+
+            .talk-image {
+                min-height: 150px;
+            }
+
+            .talk-title {
+                font-size: 1.1rem;
+            }
+
+            .talk-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Bio</a></li>
+            <li><a href="papers.html">Papers</a></li>
+            <li><a href="talks.html" class="active">Talks</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1><span>🎤</span>Talks & Presentations</h1>
+        <p>Recent presentations at conferences, seminars, and workshops.</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- 2025 Talks -->
+        <div class="year-section">
+            <h2 class="year-header">2025</h2>
+
+            <div class="talk-card fade-in">
+                <div class="talk-image">🏦</div>
+                <div class="talk-content">
+                    <div>
+                        <h3 class="talk-title">Bank Failures Still Matter: Evidence from a Natural Experiment</h3>
+                        <p class="talk-event">Job Market Talk</p>
+                        <div class="talk-meta">
+                            <span class="talk-date">📅 February 2025</span>
+                            <span class="talk-location">📍 Various Universities</span>
+                        </div>
+                        <p class="talk-description">
+                            Presentation of my job market paper examining the real economic effects of bank failures using novel administrative data. The talk highlights identification strategy using staggered bank failures as natural experiments and findings on credit supply and firm dynamics.
+                        </p>
+                    </div>
+                    <div class="talk-footer">
+                        <span class="talk-badge conference">Job Market</span>
+                        <a href="#" class="talk-link">Slides</a>
+                        <a href="#" class="talk-link">Video</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="talk-card fade-in">
+                <div class="talk-image">💼</div>
+                <div class="talk-content">
+                    <div>
+                        <h3 class="talk-title">Credit Supply Shocks and Firm Dynamics: Lessons from the European Sovereign Crisis</h3>
+                        <p class="talk-event">European Economic Association Annual Congress</p>
+                        <div class="talk-meta">
+                            <span class="talk-date">📅 August 2025</span>
+                            <span class="talk-location">📍 Barcelona, Spain</span>
+                        </div>
+                        <p class="talk-description">
+                            Presentation of joint work analyzing heterogeneous effects of credit supply contractions on European firms. Discusses firm-level responses to banking sector stress and policy implications for financial stability.
+                        </p>
+                    </div>
+                    <div class="talk-footer">
+                        <span class="talk-badge conference">Conference</span>
+                        <a href="#" class="talk-link">Slides</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024 Talks -->
+        <div class="year-section">
+            <h2 class="year-header">2024</h2>
+
+            <div class="talk-card fade-in">
+                <div class="talk-image">🎓</div>
+                <div class="talk-content">
+                    <div>
+                        <h3 class="talk-title">Deposits and Bank Lending: Evidence from Consumer Banking Data</h3>
+                        <p class="talk-event">Irish Economic Association Annual Conference</p>
+                        <div class="talk-meta">
+                            <span class="talk-date">📅 May 2024</span>
+                            <span class="talk-location">📍 Dublin, Ireland</span>
+                        </div>
+                        <p class="talk-description">
+                            Presentation examining the relationship between deposit dynamics and bank lending behavior using granular consumer banking data. Shows amplification of lending contraction during deposit outflows.
+                        </p>
+                    </div>
+                    <div class="talk-footer">
+                        <span class="talk-badge conference">Conference</span>
+                        <a href="#" class="talk-link">Slides</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="talk-card fade-in">
+                <div class="talk-image">📊</div>
+                <div class="talk-content">
+                    <div>
+                        <h3 class="talk-title">Financial Fragility and Monetary Policy Effectiveness</h3>
+                        <p class="talk-event">Central Bank Economics Seminar Series</p>
+                        <div class="talk-meta">
+                            <span class="talk-date">📅 March 2024</span>
+                            <span class="talk-location">📍 Central Bank of Ireland, Dublin</span>
+                        </div>
+                        <p class="talk-description">
+                            Seminar presentation of research on monetary policy transmission during periods of financial stress. Discusses mechanisms through which banking sector fragility reduces policy effectiveness.
+                        </p>
+                    </div>
+                    <div class="talk-footer">
+                        <span class="talk-badge seminar">Seminar</span>
+                        <a href="#" class="talk-link">Slides</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="talk-card fade-in">
+                <div class="talk-image">🔬</div>
+                <div class="talk-content">
+                    <div>
+                        <h3 class="talk-title">The Transmission of Bank Stress in Euro Area Interbank Networks</h3>
+                        <p class="talk-event">Workshop on Financial Networks and Systemic Risk</p>
+                        <div class="talk-meta">
+                            <span class="talk-date">📅 September 2024</span>
+                            <span class="talk-location">📍 University of Zurich, Switzerland</span>
+                        </div>
+                        <p class="talk-description">
+                            Workshop presentation applying network analysis methods to trace bank stress transmission. Demonstrates how stress in systemically important institutions propagates through interbank lending networks.
+                        </p>
+                    </div>
+                    <div class="talk-footer">
+                        <span class="talk-badge conference">Workshop</span>
+                        <a href="#" class="talk-link">Slides</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2023 Talks -->
+        <div class="year-section">
+            <h2 class="year-header">2023</h2>
+
+            <div class="talk-card fade-in">
+                <div class="talk-image">🏛️</div>
+                <div class="talk-content">
+                    <div>
+                        <h3 class="talk-title">Credit Supply and Real Outcomes: A Microdata Approach</h3>
+                        <p class="talk-event">UCD Economics Graduate Seminar</p>
+                        <div class="talk-meta">
+                            <span class="talk-date">📅 October 2023</span>
+                            <span class="talk-location">📍 University College Dublin, Ireland</span>
+                        </div>
+                        <p class="talk-description">
+                            Early-stage presentation of PhD research on credit supply transmission mechanisms. Discusses data collection and empirical strategy for identifying causal effects of banking sector shocks.
+                        </p>
+                    </div>
+                    <div class="talk-footer">
+                        <span class="talk-badge seminar">Seminar</span>
+                        <a href="#" class="talk-link">Slides</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#" class="social-icon" title="Twitter">𝕏</a>
+            <a href="#" class="social-icon" title="LinkedIn">in</a>
+            <a href="#" class="social-icon" title="GitHub">⚙️</a>
+        </div>
+        <p>&copy; 2025 Sam Deegan. Powered by Hugo Academic.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active nav link
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
