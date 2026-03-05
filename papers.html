@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Sam Deegan</title>
+    <title>Papers - Sam Deegan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --navy-dark: #0a1628;
@@ -32,345 +28,139 @@
 
         /* Navigation */
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
             background-color: var(--navy-dark);
             border-bottom: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
         }
-
         nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap;
+            list-style: none; display: flex; justify-content: center;
+            gap: 2rem; max-width: 1200px; margin: 0 auto; flex-wrap: wrap;
         }
-
         nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-            padding-bottom: 0.25rem;
+            color: var(--text-secondary); text-decoration: none;
+            font-weight: 500; font-size: 0.95rem;
+            transition: color 0.3s ease; position: relative; padding-bottom: 0.25rem;
         }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--accent-teal);
-        }
-
+        nav a:hover, nav a.active { color: var(--accent-teal); }
         nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: var(--accent-teal);
+            content: ''; position: absolute; bottom: -0.5rem;
+            left: 0; right: 0; height: 2px; background-color: var(--accent-teal);
         }
 
         /* Page Header */
         .page-header {
             background: linear-gradient(135deg, #0a1628 0%, #111a2e 50%, #0a2f4f 100%);
-            padding: 3rem 2rem;
-            text-align: center;
+            padding: 3rem 2rem; text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
-
         .page-header h1 {
-            color: var(--text-primary);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
+            color: var(--text-primary); font-size: 2.2rem; font-weight: 700;
+            margin-bottom: 0.5rem; display: flex; align-items: center;
+            justify-content: center; gap: 0.75rem;
         }
-
-        .page-header h1 span {
-            font-size: 2.5rem;
-        }
-
+        .page-header h1 span { font-size: 2.5rem; }
         .page-header p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 1rem auto 0;
-        }
-
-        /* Filter Bar */
-        .filter-bar {
-            background-color: var(--navy-light);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.5rem 2rem;
-        }
-
-        .filter-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            flex-grow: 1;
-            min-width: 200px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background-color: var(--navy-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input::placeholder {
-            color: var(--text-secondary);
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--accent-teal);
-            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
+            color: var(--text-secondary); font-size: 1rem;
+            max-width: 700px; margin: 1rem auto 0;
         }
 
         /* Content Area */
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
+        .content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
 
-        .year-section {
-            margin-bottom: 3rem;
-        }
-
+        .year-section { margin-bottom: 3rem; }
         .year-header {
-            color: var(--accent-teal);
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            color: var(--accent-teal); font-size: 1.4rem; font-weight: 700;
+            margin-bottom: 1.5rem; padding-bottom: 1rem;
             border-bottom: 2px solid var(--accent-blue);
         }
 
         .publication-item {
-            background-color: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
+            background-color: var(--navy-light); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 1.75rem; margin-bottom: 1.5rem;
             transition: all 0.3s ease;
         }
-
         .publication-item:hover {
             border-color: var(--accent-teal);
             box-shadow: 0 8px 20px rgba(45, 212, 191, 0.15);
             transform: translateY(-3px);
         }
-
         .publication-title {
-            color: var(--text-primary);
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
+            color: var(--text-primary); font-size: 1.15rem; font-weight: 700;
+            margin-bottom: 0.5rem; line-height: 1.5;
         }
-
-        .publication-authors {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-authors strong {
-            color: var(--text-primary);
-        }
-
+        .publication-authors { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .publication-authors strong { color: var(--text-primary); }
         .publication-journal {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-bottom: 1rem;
+            color: var(--text-secondary); font-size: 0.9rem;
+            font-style: italic; margin-bottom: 1rem;
         }
-
         .publication-abstract {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            color: var(--text-secondary); font-size: 0.95rem;
+            line-height: 1.6; margin-bottom: 1rem;
         }
-
         .publication-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 1rem;
+            display: flex; gap: 1rem; flex-wrap: wrap;
+            align-items: center; margin-bottom: 1rem;
         }
-
         .publication-badge {
-            background-color: rgba(45, 212, 191, 0.1);
-            color: var(--accent-teal);
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid var(--accent-teal);
+            background-color: rgba(45, 212, 191, 0.1); color: var(--accent-teal);
+            padding: 0.35rem 0.75rem; border-radius: 4px;
+            font-size: 0.8rem; font-weight: 600; border: 1px solid var(--accent-teal);
         }
-
         .publication-badge.preprint {
             background-color: rgba(59, 130, 246, 0.1);
-            color: var(--accent-blue);
-            border-color: var(--accent-blue);
+            color: var(--accent-blue); border-color: var(--accent-blue);
         }
-
-        .publication-badge.published {
-            background-color: rgba(34, 197, 94, 0.1);
-            color: #22c55e;
-            border-color: #22c55e;
-        }
-
-        .publication-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
+        .publication-links { display: flex; gap: 1rem; flex-wrap: wrap; }
         .publication-link {
-            color: var(--accent-teal);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            color: var(--accent-teal); text-decoration: none;
+            font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;
+            padding: 0.5rem 1rem; border-radius: 4px;
             border: 1px solid rgba(45, 212, 191, 0.3);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
         }
-
         .publication-link:hover {
             background-color: rgba(45, 212, 191, 0.15);
             border-color: var(--accent-teal);
         }
-
-        .tag-list {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
+        .tag-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
         .tag {
-            background-color: transparent;
-            border: 1px solid var(--accent-teal);
-            color: var(--accent-teal);
-            padding: 0.35rem 0.8rem;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            background-color: transparent; border: 1px solid var(--accent-teal);
+            color: var(--accent-teal); padding: 0.35rem 0.8rem;
+            border-radius: 16px; font-size: 0.8rem; font-weight: 500;
         }
 
         /* Footer */
         footer {
-            background-color: #050d14;
-            border-top: 1px solid var(--border-color);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            background-color: #050d14; border-top: 1px solid var(--border-color);
+            padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem;
         }
-
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
+        .social-icons { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem; }
         .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--navy-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--accent-teal);
-            border: 2px solid var(--accent-teal);
-            transition: all 0.3s ease;
-            font-weight: 600;
+            width: 40px; height: 40px; border-radius: 50%;
+            background-color: var(--navy-light); display: flex;
+            align-items: center; justify-content: center; text-decoration: none;
+            color: var(--accent-teal); border: 2px solid var(--accent-teal);
+            transition: all 0.3s ease; font-weight: 600;
         }
-
-        .social-icon:hover {
-            background-color: var(--accent-teal);
-            color: var(--navy-dark);
-        }
+        .social-icon:hover { background-color: var(--accent-teal); color: var(--navy-dark); }
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .fade-in {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
+        .fade-in { animation: fadeInUp 0.6s ease forwards; opacity: 0; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .page-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .filter-content {
-                flex-direction: column;
-            }
-
-            .search-box {
-                width: 100%;
-            }
-
-            .publication-item {
-                padding: 1.25rem;
-            }
-
-            .publication-title {
-                font-size: 1rem;
-            }
-
-            .publication-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            nav ul { gap: 1rem; font-size: 0.85rem; }
+            .page-header h1 { font-size: 1.8rem; }
+            .publication-item { padding: 1.25rem; }
+            .publication-title { font-size: 1rem; }
+            .publication-meta { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -380,57 +170,49 @@
         <ul>
             <li><a href="index.html">Bio</a></li>
             <li><a href="papers.html" class="active">Papers</a></li>
-            <li><a href="talks.html">Talks</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
             <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="talks.html">Talks</a></li>
         </ul>
     </nav>
 
     <!-- Page Header -->
     <div class="page-header">
-        <h1><span>📚</span>Publications</h1>
-        <p>Research papers on banking, financial stability, and credit transmission mechanisms.</p>
-    </div>
-
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-        <div class="filter-content">
-            <div class="search-box">
-                <input type="text" placeholder="Search publications..." id="searchBox">
-            </div>
-        </div>
+        <h1><span>&#128218;</span>Papers</h1>
+        <p>My research uses the organisational geography of banking groups&mdash;branch networks, ownership hierarchies, and deposit footprints&mdash;to causally identify how institution-level shocks transmit to local economic outcomes.</p>
     </div>
 
     <!-- Content -->
     <div class="content">
+
         <!-- Under Review (2026) -->
         <div class="year-section">
             <h2 class="year-header">Under Review (2026)</h2>
 
+            <!-- Failure in the Margins -->
             <div class="publication-item fade-in">
                 <h3 class="publication-title">Failure in the Margins: Local Exposure to Non-local Bank Distress</h3>
                 <p class="publication-authors"><strong>Deegan, S.</strong></p>
                 <div class="publication-meta">
-                    <span class="publication-badge preprint">Job Market Paper</span>
+                    <span class="publication-badge">Job Market Paper</span>
                     <span style="color: var(--text-secondary); font-size: 0.9rem;">January 2026</span>
                 </div>
                 <p class="publication-abstract">
-                    This job market paper examines how local economies are affected by the failure of non-local banks that operate branches in their area. Using FDIC data on US bank failures from 1976-2016, I identify the causal impact on local credit supply and real economic outcomes through the spatial branch network. The analysis reveals that localities with greater exposure to failing banks—measured by the number of affected bank branches—experience significant declines in credit availability and subsequent reductions in employment and firm formation. These effects are concentrated in areas with limited alternative banking options.
+                    This paper reframes regional bank-failure analysis around branch networks. I map U.S. bank failures to counties through pre-failure branch footprints, showing that the relevant treatment is not &ldquo;a failure in the county&rdquo; but joint exposure across connected local economies. Using a nested peripheral-exposure instrument that exploits within-bank footprint heterogeneity, IV estimates show that a one-percentage-point increase in failed deposits relative to county income reduces annual personal income growth by 0.14 percentage points. The cumulative response implies that personal income remains approximately 1&ndash;2 per cent below its pre-failure path four years after exposure and returns only gradually over the subsequent decade. Adjustment is uneven across income components: public transfers rise and remain elevated, while asset-related income declines sharply with little recovery, consistent with sustained deterioration in market income only partly offset by public insurance mechanisms.
                 </p>
                 <div class="publication-links">
                     <a href="#" class="publication-link">PDF</a>
                     <a href="#" class="publication-link">Slides</a>
-                    <a href="#" class="publication-link">Data</a>
                 </div>
                 <div class="tag-list" style="margin-top: 1rem;">
-                    <span class="tag">Banking</span>
-                    <span class="tag">Natural Experiment</span>
-                    <span class="tag">Credit Supply</span>
+                    <span class="tag">Bank Failures</span>
+                    <span class="tag">Branch Networks</span>
                     <span class="tag">Spatial Economics</span>
+                    <span class="tag">Local Projections</span>
                 </div>
             </div>
 
+            <!-- Stress Tests on Main Street -->
             <div class="publication-item fade-in">
                 <h3 class="publication-title">Stress Tests on Main Street: Tracing Holding-Company Exposure Through Branch Networks</h3>
                 <p class="publication-authors"><strong>Deegan, S.</strong></p>
@@ -439,7 +221,7 @@
                     <span style="color: var(--text-secondary); font-size: 0.9rem;">January 2026</span>
                 </div>
                 <p class="publication-abstract">
-                    This paper examines how stress test results for bank holding companies transmit to local economic outcomes through the geographic network of their branches. Using stress test data from the Federal Reserve's Comprehensive Capital Analysis and Review (CCAR) program combined with branch-level data, I identify how stress-induced constraints on capital at the holding company level translate into lending contractions at the branch level. I find that branches of banks with poor stress test results reduce lending more aggressively, with effects concentrated in rural areas with fewer alternative banking options.
+                    A central critique of post-crisis stress-testing regimes is the &ldquo;growth penalty&rdquo; hypothesis: by tightening effective capital constraints, stress tests may reduce credit supply and depress economic growth. I evaluate this claim using the introduction of the U.S. Comprehensive Capital Analysis and Review (CCAR). I trace eligibility from holding companies to counties through predetermined ownership links and persistent branch deposit networks, constructing county-level exposure with pre-period deposit shares. Local-projection estimates show that median exposure (21% of county deposits) raises real personal income by 1.52 percentage points cumulatively over four years. The response is concentrated in proprietors&rsquo; and capital-type income rather than labour earnings or transfers. Complementary Call Report evidence indicates increased capitalisation and reduced reliance on wholesale funding without an average contraction in loan intensity.
                 </p>
                 <div class="publication-links">
                     <a href="#" class="publication-link">PDF</a>
@@ -447,30 +229,31 @@
                 </div>
                 <div class="tag-list" style="margin-top: 1rem;">
                     <span class="tag">Stress Testing</span>
-                    <span class="tag">Credit Transmission</span>
-                    <span class="tag">Bank Branches</span>
-                    <span class="tag">Lending Channel</span>
+                    <span class="tag">Capital Regulation</span>
+                    <span class="tag">Macroprudential Policy</span>
+                    <span class="tag">Credit Supply</span>
                 </div>
             </div>
 
+            <!-- Consolidation-Driven De-Branching -->
             <div class="publication-item fade-in">
-                <h3 class="publication-title">Consolidation-Driven De-Branching: Overlap Effects in Quasi-Exogenous Bank M&A</h3>
+                <h3 class="publication-title">Consolidation-Driven De-Branching: Overlap Effects in Quasi-Exogenous Bank M&amp;A</h3>
                 <p class="publication-authors"><strong>Deegan, S.</strong></p>
                 <div class="publication-meta">
                     <span class="publication-badge preprint">Under Review</span>
                     <span style="color: var(--text-secondary); font-size: 0.9rem;">January 2026</span>
                 </div>
                 <p class="publication-abstract">
-                    This paper studies how bank mergers and acquisitions lead to branch closures in overlapping markets. Using a novel dataset of M&A transactions and branch locations, I exploit the exogenous timing of regulatory approvals for mergers to identify the causal impact on branch consolidation and local lending. I find that acquiring banks systematically close branches of the target bank in markets where the two institutions overlap, reducing local banking competition and affecting credit availability for households and small businesses.
+                    This paper isolates a consolidation channel of de-branching using FDIC Purchase-and-Assumption resolutions, in which failed banks are allocated to acquirers through regulator-driven, least-cost auctions completed under tight time constraints. Because individual failures are largely unanticipated and resolutions occur rapidly, acquirers inherit branch networks with limited scope for pre-positioning. Using a stacked event-study design that exploits within-deal cross-county variation, I compare branch outcomes in overlap counties (served by both acquirer and target pre-resolution) with expansion counties (served only by the target). Overlap counties experience significant branch contraction relative to expansion counties, indicating that consolidation generates discrete, geographically concentrated reductions in local branch capacity&mdash;even when technology, demand conditions, and acquirer characteristics are held fixed within transactions. The results highlight a trade-off embedded in modern resolution regimes: mechanisms that stabilise the financial system may simultaneously compress the geographic footprint of local banking.
                 </p>
                 <div class="publication-links">
                     <a href="#" class="publication-link">PDF</a>
                 </div>
                 <div class="tag-list" style="margin-top: 1rem;">
                     <span class="tag">Banking Consolidation</span>
-                    <span class="tag">Bank Mergers</span>
                     <span class="tag">Branch Networks</span>
-                    <span class="tag">Competition</span>
+                    <span class="tag">Resolution Design</span>
+                    <span class="tag">FDIC</span>
                 </div>
             </div>
         </div>
@@ -481,21 +264,16 @@
     <footer>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/samdeegan/" class="social-icon" title="LinkedIn" target="_blank">in</a>
-                <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
+            <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
             <a href="https://github.com/Sam-Deegan" class="social-icon" title="GitHub" target="_blank">GH</a>
             <a href="https://orcid.org/0009-0007-7172-4523" class="social-icon" title="ORCID" target="_blank">iD</a>
-            <a href="mailto:sam.deegan@ucdconnect.ie" class="social-icon" title="Email">✉️</a>
+            <a href="/cdn-cgi/l/email-protection#285b4945064c4d4d4f4946685d4b4c4b4746464d4b5c06414d" class="social-icon" title="Email">&#9993;</a>
         </div>
         <p>&copy; 2026 Sam Deegan.</p>
     </footer>
 
-    <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -504,30 +282,9 @@
                 }
             });
         }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => { observer.observe(el); });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Active nav link
         document.addEventListener('DOMContentLoaded', () => {
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Search functionality
-        document.getElementById('searchBox').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            document.querySelectorAll('.publication-item').forEach(item => {
-                const text = item.textContent.toLowerCase();
-                item.style.display = text.includes(searchTerm) ? 'block' : 'none';
-            });
-        });
-    </script>
-</body>
-</html>

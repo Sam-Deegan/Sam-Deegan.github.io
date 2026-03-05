@@ -6,448 +6,120 @@
     <title>Experience - Sam Deegan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --navy-dark: #0a1628;
-            --navy-light: #111a2e;
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --accent-teal: #2dd4bf;
-            --accent-blue: #3b82f6;
-            --border-color: #1e293b;
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --navy-dark: #0a1628; --navy-light: #111a2e;
+            --text-primary: #ffffff; --text-secondary: #94a3b8;
+            --accent-teal: #2dd4bf; --accent-blue: #3b82f6;
+            --border-color: #1e293b; --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background-color: var(--navy-dark); color: var(--text-secondary); line-height: 1.6; }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--navy-dark);
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
+        nav { position: sticky; top: 0; z-index: 1000; background-color: var(--navy-dark); border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); padding: 1rem 2rem; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s ease; position: relative; padding-bottom: 0.25rem; }
+        nav a:hover, nav a.active { color: var(--accent-teal); }
+        nav a.active::after { content: ''; position: absolute; bottom: -0.5rem; left: 0; right: 0; height: 2px; background-color: var(--accent-teal); }
 
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--navy-dark);
-            border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-        }
+        .page-header { background: linear-gradient(135deg, #0a1628 0%, #111a2e 50%, #0a2f4f 100%); padding: 3rem 2rem; text-align: center; border-bottom: 1px solid var(--border-color); }
+        .page-header h1 { color: var(--text-primary); font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
+        .page-header h1 span { font-size: 2.5rem; }
+        .page-header p { color: var(--text-secondary); font-size: 1rem; max-width: 600px; margin: 1rem auto 0; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
+        .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { color: var(--accent-teal); font-size: 1.6rem; font-weight: 700; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--accent-blue); }
 
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-            padding-bottom: 0.25rem;
-        }
+        .timeline { position: relative; padding: 2rem 0; }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(180deg, var(--accent-teal), var(--accent-blue), transparent); top: 0; }
 
-        nav a:hover,
-        nav a.active {
-            color: var(--accent-teal);
-        }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: var(--accent-teal);
-        }
-
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(135deg, #0a1628 0%, #111a2e 50%, #0a2f4f 100%);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .page-header h1 {
-            color: var(--text-primary);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-
-        .page-header h1 span {
-            font-size: 2.5rem;
-        }
-
-        .page-header p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 1rem auto 0;
-        }
-
-        /* Content Area */
-        .content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .section-title {
-            color: var(--accent-teal);
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-blue);
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--accent-teal), var(--accent-blue), transparent);
-            top: 0;
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
+        .timeline-item { margin-bottom: 3rem; opacity: 0; animation: fadeInUp 0.6s ease forwards; }
         .timeline-item:nth-child(1) { animation-delay: 0.1s; }
         .timeline-item:nth-child(2) { animation-delay: 0.2s; }
         .timeline-item:nth-child(3) { animation-delay: 0.3s; }
         .timeline-item:nth-child(4) { animation-delay: 0.4s; }
         .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(odd) { padding-right: calc(50% + 2rem); text-align: right; }
+        .timeline-item:nth-child(even) { padding-left: calc(50% + 2rem); text-align: left; }
 
-        .timeline-item:nth-child(odd) {
-            padding-right: calc(50% + 2rem);
-            text-align: right;
-        }
+        .timeline-dot { position: absolute; width: 16px; height: 16px; background-color: var(--accent-teal); border: 3px solid var(--navy-dark); border-radius: 50%; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 10; }
 
-        .timeline-item:nth-child(even) {
-            padding-left: calc(50% + 2rem);
-            text-align: left;
-        }
+        .timeline-content { background-color: var(--navy-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; box-shadow: var(--card-shadow); transition: all 0.3s ease; }
+        .timeline-item:hover .timeline-content { border-color: var(--accent-teal); box-shadow: 0 8px 20px rgba(45, 212, 191, 0.15); }
 
-        .timeline-dot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background-color: var(--accent-teal);
-            border: 3px solid var(--navy-dark);
-            border-radius: 50%;
-            top: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
+        .experience-title { color: var(--text-primary); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .experience-org { color: var(--accent-teal); font-weight: 600; margin-bottom: 0.25rem; }
+        .experience-period { color: var(--accent-blue); font-size: 0.9rem; font-weight: 500; display: inline-block; background-color: rgba(59, 130, 246, 0.1); padding: 0.35rem 0.75rem; border-radius: 4px; }
 
-        .timeline-content {
-            background-color: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-        }
+        .skills-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .skill-category { background-color: var(--navy-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease; }
+        .skill-category:hover { border-color: var(--accent-teal); box-shadow: 0 6px 16px rgba(45, 212, 191, 0.1); }
+        .skill-title { color: var(--text-primary); font-weight: 700; margin-bottom: 1rem; }
+        .skill-list { list-style: none; }
+        .skill-tag { display: inline-block; background-color: rgba(45, 212, 191, 0.1); color: var(--accent-teal); padding: 0.35rem 0.75rem; border-radius: 12px; font-size: 0.8rem; margin-right: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--accent-teal); }
 
-        .timeline-item:hover .timeline-content {
-            border-color: var(--accent-teal);
-            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.15);
-        }
+        footer { background-color: #050d14; border-top: 1px solid var(--border-color); padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .social-icons { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; background-color: var(--navy-light); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--accent-teal); border: 2px solid var(--accent-teal); transition: all 0.3s ease; font-weight: 600; }
+        .social-icon:hover { background-color: var(--accent-teal); color: var(--navy-dark); }
 
-        .experience-title {
-            color: var(--text-primary);
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .experience-org {
-            color: var(--accent-teal);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .experience-period {
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            display: inline-block;
-            background-color: rgba(59, 130, 246, 0.1);
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-        }
-
-        .experience-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .experience-bullets {
-            list-style: none;
-            margin-top: 1rem;
-            padding-left: 1rem;
-        }
-
-        .experience-bullets li {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-            position: relative;
-            padding-left: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .experience-bullets li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-teal);
-            font-weight: 700;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background-color: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            border-color: var(--accent-teal);
-            box-shadow: 0 6px 16px rgba(45, 212, 191, 0.1);
-        }
-
-        .skill-title {
-            color: var(--text-primary);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            padding: 0.35rem 0;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            background-color: rgba(45, 212, 191, 0.1);
-            color: var(--accent-teal);
-            padding: 0.35rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            border: 1px solid var(--accent-teal);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #050d14;
-            border-top: 1px solid var(--border-color);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--navy-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--accent-teal);
-            border: 2px solid var(--accent-teal);
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .social-icon:hover {
-            background-color: var(--accent-teal);
-            color: var(--navy-dark);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .page-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .timeline::before {
-                left: 0;
-            }
-
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                padding-right: 0;
-                padding-left: 2.5rem;
-                text-align: left;
-            }
-
-            .timeline-dot {
-                left: 0;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+            nav ul { gap: 1rem; font-size: 0.85rem; }
+            .page-header h1 { font-size: 1.8rem; }
+            .timeline::before { left: 0; }
+            .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { padding-right: 0; padding-left: 2.5rem; text-align: left; }
+            .timeline-dot { left: 0; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="index.html">Bio</a></li>
             <li><a href="papers.html">Papers</a></li>
-            <li><a href="talks.html">Talks</a></li>
-            <li><a href="experience.html" class="active">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
             <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="experience.html" class="active">Experience</a></li>
+            <li><a href="talks.html">Talks</a></li>
         </ul>
     </nav>
 
-    <!-- Page Header -->
     <div class="page-header">
-        <h1><span>💼</span>Experience</h1>
-        <p>Academic research, teaching, and professional consulting positions.</p>
+        <h1><span>&#128188;</span>Experience</h1>
+        <p>Academic and professional positions.</p>
     </div>
 
-    <!-- Content -->
     <div class="content">
         <h2 class="section-title">Career Timeline</h2>
 
         <div class="timeline">
+
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="experience-title">PhD Researcher</div>
                     <div class="experience-org">University College Dublin</div>
-                    <div class="experience-period">Sep 2022 – Sep 2026 (Expected)</div>
-                    <div class="experience-description">Doctoral researcher in Economics focusing on banking stability and financial transmission mechanisms. Supervisors: Dr Constantin Bürgi & Dr Yota Deli.</div>
-                    <ul class="experience-bullets">
-                        <li>Developed novel research on bank failures and spatial transmission to local economies</li>
-                        <li>Conducted extensive empirical analysis using administrative banking data</li>
-                        <li>Presented research at international conferences and workshops</li>
-                        <li>Served as teaching assistant and adjunct lecturer for undergraduate and graduate courses</li>
-                    </ul>
+                    <div class="experience-period">Sep 2022 &ndash; Sep 2026 (Expected)</div>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="experience-title">Academic Director & Adjunct Lecturer</div>
-                    <div class="experience-org">Boston University Dublin Program</div>
-                    <div class="experience-period">Jan 2023 – Jan 2026</div>
-                    <div class="experience-description">Academic Director and instructor for study abroad programs, teaching economics and finance courses to American students in an international setting.</div>
-                    <ul class="experience-bullets">
-                        <li>Taught CAS EC 372: The Irish Economy</li>
-                        <li>Taught QST FE 445: Investment Analysis and Portfolio Management</li>
-                        <li>Taught HUB SA 330: Study Abroad Internship seminar</li>
-                        <li>Managed academic affairs and student mentoring for 100+ students annually</li>
-                    </ul>
+                    <div class="experience-title">Academic Director &amp; Adjunct Lecturer</div>
+                    <div class="experience-org">Boston University Dublin Programme</div>
+                    <div class="experience-period">Jan 2023 &ndash; Jan 2026</div>
                 </div>
             </div>
 
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="experience-title">Independent Economist</div>
-                    <div class="experience-org">Self-Employed Consultant</div>
-                    <div class="experience-period">Sep 2022 – Present</div>
-                    <div class="experience-description">Independent economic consultant providing research support, data analysis, and economic analysis services to various clients.</div>
-                    <ul class="experience-bullets">
-                        <li>Conducted econometric analysis and research support</li>
-                        <li>Developed economic models and forecasting frameworks</li>
-                        <li>Provided policy analysis and research consultation</li>
-                    </ul>
+                    <div class="experience-title">Economist</div>
+                    <div class="experience-org">Independent Economic Consultant</div>
+                    <div class="experience-period">Sep 2022 &ndash; Present</div>
                 </div>
             </div>
 
@@ -456,14 +128,7 @@
                 <div class="timeline-content">
                     <div class="experience-title">Senior Economist</div>
                     <div class="experience-org">AECOM</div>
-                    <div class="experience-period">Apr 2017 – Sep 2020</div>
-                    <div class="experience-description">Senior economist in the Economics & Evaluation team, providing economic analysis and research support to corporate and public sector clients.</div>
-                    <ul class="experience-bullets">
-                        <li>Conducted economic impact assessments and policy analysis</li>
-                        <li>Developed econometric models for forecasting and evaluation</li>
-                        <li>Led data analysis teams and supervised junior staff</li>
-                        <li>Delivered client presentations and research reports</li>
-                    </ul>
+                    <div class="experience-period">Apr 2017 &ndash; Sep 2020</div>
                 </div>
             </div>
 
@@ -471,59 +136,27 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="experience-title">Graduate Economist</div>
-                    <div class="experience-org">Irish Government Economic & Evaluation Service (IGEES)</div>
-                    <div class="experience-period">Apr 2016 – Apr 2017</div>
-                    <div class="experience-description">Graduate-level position in the Irish Government Economic and Evaluation Service, supporting economic policy development and evaluation.</div>
-                    <ul class="experience-bullets">
-                        <li>Provided economic analysis for policy development</li>
-                        <li>Conducted program evaluations and impact assessments</li>
-                        <li>Contributed to economic briefings and policy papers</li>
-                        <li>Collaborated with multiple government departments</li>
-                    </ul>
+                    <div class="experience-org">Irish Government Economic and Evaluation Service (IGEES)</div>
+                    <div class="experience-period">Apr 2016 &ndash; Apr 2017</div>
                 </div>
             </div>
+
         </div>
 
         <!-- Skills Section -->
         <div class="skills-section">
-            <h2 class="section-title">Skills & Expertise</h2>
-
+            <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3 class="skill-title">💻 Programming</h3>
+                    <h3 class="skill-title">Programming</h3>
                     <ul class="skill-list">
                         <li><span class="skill-tag">R</span></li>
                         <li><span class="skill-tag">Python</span></li>
                         <li><span class="skill-tag">Stata</span></li>
-                        <li><span class="skill-tag">LaTeX</span></li>
-                        <li><span class="skill-tag">SQL</span></li>
                     </ul>
                 </div>
-
                 <div class="skill-category">
-                    <h3 class="skill-title">📊 Econometric Methods</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-tag">Causal Inference</span></li>
-                        <li><span class="skill-tag">Difference-in-Differences</span></li>
-                        <li><span class="skill-tag">Instrumental Variables</span></li>
-                        <li><span class="skill-tag">Panel Methods</span></li>
-                        <li><span class="skill-tag">Time Series Analysis</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-title">🏦 Research Fields</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-tag">Banking & Finance</span></li>
-                        <li><span class="skill-tag">Financial Stability</span></li>
-                        <li><span class="skill-tag">Macroeconomics</span></li>
-                        <li><span class="skill-tag">Credit Markets</span></li>
-                        <li><span class="skill-tag">Spatial Economics</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-title">📈 Languages</h3>
+                    <h3 class="skill-title">Languages</h3>
                     <ul class="skill-list">
                         <li><span class="skill-tag">English (Native)</span></li>
                         <li><span class="skill-tag">Irish (Basic)</span></li>
@@ -532,29 +165,27 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/samdeegan/" class="social-icon" title="LinkedIn" target="_blank">in</a>
-                <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
+            <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">&#120143;</a>
             <a href="https://github.com/Sam-Deegan" class="social-icon" title="GitHub" target="_blank">GH</a>
             <a href="https://orcid.org/0009-0007-7172-4523" class="social-icon" title="ORCID" target="_blank">iD</a>
-            <a href="mailto:sam.deegan@ucdconnect.ie" class="social-icon" title="Email">✉️</a>
+            <a href="mailto:sam.deegan@ucdconnect.ie" class="social-icon" title="Email">&#9993;</a>
         </div>
         <p>&copy; 2026 Sam Deegan.</p>
     </footer>
 
     <script>
-        // Active nav link
         document.addEventListener('DOMContentLoaded', () => {
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === currentPage) { link.classList.add('active'); }
             });
         });
     </script>

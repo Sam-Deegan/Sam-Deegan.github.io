@@ -6,11 +6,7 @@
     <title>Sam Deegan - PhD Economics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --navy-dark: #0a1628;
@@ -33,492 +29,202 @@
 
         /* Navigation */
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            position: sticky; top: 0; z-index: 1000;
             background-color: var(--navy-dark);
             border-bottom: 1px solid var(--border-color);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
         }
-
         nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap;
+            list-style: none; display: flex; justify-content: center;
+            gap: 2rem; max-width: 1200px; margin: 0 auto; flex-wrap: wrap;
         }
-
         nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-            padding-bottom: 0.25rem;
+            color: var(--text-secondary); text-decoration: none;
+            font-weight: 500; font-size: 0.95rem;
+            transition: color 0.3s ease; position: relative; padding-bottom: 0.25rem;
         }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--accent-teal);
-        }
-
+        nav a:hover, nav a.active { color: var(--accent-teal); }
         nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: var(--accent-teal);
+            content: ''; position: absolute; bottom: -0.5rem;
+            left: 0; right: 0; height: 2px; background-color: var(--accent-teal);
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #0a1628 0%, #111a2e 50%, #0a2f4f 100%);
-            padding: 4rem 2rem;
-            text-align: center;
+            padding: 4rem 2rem; text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
+        .hero-content { max-width: 800px; margin: 0 auto; }
         .profile-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 150px; height: 150px; border-radius: 50%;
             background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--navy-dark);
+            margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; font-weight: 700; color: var(--navy-dark);
             box-shadow: var(--card-shadow);
         }
-
-        .hero h1 {
-            color: var(--text-primary);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-subtitle {
-            color: var(--accent-teal);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .hero-affiliation {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
+        .hero h1 { color: var(--text-primary); font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero-subtitle { color: var(--accent-teal); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .hero-affiliation { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1.5rem; }
         .hero-bio {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--text-secondary); font-size: 1rem; line-height: 1.8;
+            margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
         .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600;
+            text-decoration: none; transition: all 0.3s ease; cursor: pointer;
+            border: none; font-family: 'Inter', sans-serif; font-size: 0.95rem;
         }
-
-        .btn-primary {
-            background-color: var(--accent-teal);
-            color: var(--navy-dark);
-        }
-
+        .btn-primary { background-color: var(--accent-teal); color: var(--navy-dark); }
         .btn-primary:hover {
-            background-color: #1ac9b1;
-            transform: translateY(-2px);
+            background-color: #1ac9b1; transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(45, 212, 191, 0.3);
         }
-
         .btn-secondary {
-            background-color: transparent;
-            color: var(--accent-teal);
+            background-color: transparent; color: var(--accent-teal);
             border: 2px solid var(--accent-teal);
         }
-
         .btn-secondary:hover {
-            background-color: rgba(45, 212, 191, 0.1);
-            transform: translateY(-2px);
+            background-color: rgba(45, 212, 191, 0.1); transform: translateY(-2px);
         }
-
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
+        .social-icons { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
         .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--navy-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--accent-teal);
-            border: 2px solid var(--accent-teal);
-            transition: all 0.3s ease;
-            font-weight: 600;
+            width: 40px; height: 40px; border-radius: 50%;
+            background-color: var(--navy-light); display: flex;
+            align-items: center; justify-content: center; text-decoration: none;
+            color: var(--accent-teal); border: 2px solid var(--accent-teal);
+            transition: all 0.3s ease; font-weight: 600;
         }
-
-        .social-icon:hover {
-            background-color: var(--accent-teal);
-            color: var(--navy-dark);
-        }
+        .social-icon:hover { background-color: var(--accent-teal); color: var(--navy-dark); }
 
         /* Section */
         .section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+            max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
             border-bottom: 1px solid var(--border-color);
         }
-
         .section-title {
-            color: var(--text-primary);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
+            color: var(--text-primary); font-size: 1.8rem; font-weight: 700;
+            margin-bottom: 2rem; display: flex; align-items: center;
+            justify-content: center; gap: 0.75rem;
         }
-
-        .section-title span {
-            font-size: 2rem;
-        }
+        .section-title span { font-size: 2rem; }
 
         /* Education Cards */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
+        .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .education-card {
-            background-color: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: var(--card-shadow);
+            background-color: var(--navy-light); border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 2rem; box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
         }
-
         .education-card:hover {
-            border-color: var(--accent-teal);
-            transform: translateY(-4px);
+            border-color: var(--accent-teal); transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(45, 212, 191, 0.15);
         }
-
-        .education-card h3 {
-            color: var(--accent-teal);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .degree {
-            color: var(--text-primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .institution {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .education-card .year {
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+        .education-card h3 { color: var(--accent-teal); font-size: 1rem; margin-bottom: 0.5rem; }
+        .education-card .degree { color: var(--text-primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .education-card .institution { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
+        .education-card .year { color: var(--accent-blue); font-size: 0.9rem; font-weight: 500; }
 
         /* Interest Tags */
-        .interests-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
+        .interests-container { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
         .tag {
-            background-color: transparent;
-            border: 2px solid var(--accent-teal);
-            color: var(--accent-teal);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            background-color: transparent; border: 2px solid var(--accent-teal);
+            color: var(--accent-teal); padding: 0.5rem 1.2rem; border-radius: 20px;
+            font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease;
         }
-
-        .tag:hover {
-            background-color: rgba(45, 212, 191, 0.1);
-            transform: scale(1.05);
-        }
+        .tag:hover { background-color: rgba(45, 212, 191, 0.1); transform: scale(1.05); }
 
         /* Publication Grid */
-        .publication-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
+        .publication-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         .publication-card {
-            background-color: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            background-color: var(--navy-light); border: 1px solid var(--border-color);
+            border-radius: 10px; overflow: hidden; box-shadow: var(--card-shadow);
+            transition: all 0.3s ease; display: flex; flex-direction: column;
         }
-
         .publication-card:hover {
-            border-color: var(--accent-teal);
-            transform: translateY(-6px);
+            border-color: var(--accent-teal); transform: translateY(-6px);
             box-shadow: 0 12px 24px rgba(45, 212, 191, 0.2);
         }
-
         .publication-image {
-            width: 100%;
-            height: 180px;
+            width: 100%; height: 180px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-            font-size: 3rem;
-            font-weight: 300;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-primary); font-size: 3rem; font-weight: 300;
         }
-
         .publication-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;
         }
-
         .publication-title {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
+            color: var(--text-primary); font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 0.75rem; line-height: 1.4;
         }
-
         .publication-abstract {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-            line-height: 1.6;
+            color: var(--text-secondary); font-size: 0.9rem;
+            margin-bottom: 1rem; flex-grow: 1; line-height: 1.6;
         }
-
-        .publication-meta {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-
-        .publication-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .publication-tags .tag {
-            font-size: 0.8rem;
-            padding: 0.35rem 0.8rem;
-            border-width: 1px;
-        }
-
-        .publication-links {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
+        .publication-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1rem; }
+        .publication-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .publication-tags .tag { font-size: 0.8rem; padding: 0.35rem 0.8rem; border-width: 1px; }
+        .publication-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
         .publication-link {
-            color: var(--accent-teal);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            border: 1px solid rgba(45, 212, 191, 0.3);
+            color: var(--accent-teal); text-decoration: none; font-size: 0.85rem;
+            font-weight: 600; transition: all 0.3s ease; padding: 0.35rem 0.75rem;
+            border-radius: 4px; border: 1px solid rgba(45, 212, 191, 0.3);
         }
-
         .publication-link:hover {
-            background-color: rgba(45, 212, 191, 0.1);
-            border-color: var(--accent-teal);
+            background-color: rgba(45, 212, 191, 0.1); border-color: var(--accent-teal);
         }
 
         /* Recent Publications List */
-        .publications-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
+        .publications-list { display: flex; flex-direction: column; gap: 1.5rem; }
         .publication-item {
-            background-color: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
+            background-color: var(--navy-light); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;
         }
-
         .publication-item:hover {
-            border-color: var(--accent-teal);
-            box-shadow: 0 6px 16px rgba(45, 212, 191, 0.1);
+            border-color: var(--accent-teal); box-shadow: 0 6px 16px rgba(45, 212, 191, 0.1);
         }
-
         .publication-citation {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
+            color: var(--text-secondary); font-size: 0.95rem;
+            margin-bottom: 0.75rem; line-height: 1.6;
         }
-
-        .publication-citation strong {
-            color: var(--text-primary);
-        }
-
-        .publication-item .publication-links {
-            margin-top: 1rem;
-        }
+        .publication-citation strong { color: var(--text-primary); }
+        .publication-item .publication-links { margin-top: 1rem; }
 
         /* Contact Section */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
+        .contact-content { max-width: 600px; margin: 0 auto; }
         .contact-info {
-            background-color: var(--navy-light);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
+            background-color: var(--navy-light); border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 2rem; text-align: center;
         }
-
-        .contact-info p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .contact-info a {
-            color: var(--accent-teal);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
+        .contact-info p { margin-bottom: 1rem; color: var(--text-secondary); }
+        .contact-info a { color: var(--accent-teal); text-decoration: none; }
+        .contact-info a:hover { text-decoration: underline; }
 
         /* Footer */
         footer {
-            background-color: #050d14;
-            border-top: 1px solid var(--border-color);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            background-color: #050d14; border-top: 1px solid var(--border-color);
+            padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem;
         }
-
-        footer .social-icons {
-            margin-bottom: 1.5rem;
-        }
+        footer .social-icons { margin-bottom: 1.5rem; }
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .fade-in {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
+        .fade-in { animation: fadeInUp 0.6s ease forwards; opacity: 0; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
+            nav ul { gap: 1rem; font-size: 0.85rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .section-title { font-size: 1.5rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; }
         }
     </style>
 </head>
@@ -528,10 +234,9 @@
         <ul>
             <li><a href="index.html" class="active">Bio</a></li>
             <li><a href="papers.html">Papers</a></li>
-            <li><a href="talks.html">Talks</a></li>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="projects.html">Projects</a></li>
             <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="talks.html">Talks</a></li>
         </ul>
     </nav>
 
@@ -541,156 +246,153 @@
             <div class="profile-circle">SD</div>
             <h1>Sam Deegan</h1>
             <div class="hero-subtitle">PhD Candidate in Economics</div>
-            <div class="hero-affiliation">University College Dublin • Geary Institute of Public Policy</div>
-            <p class="hero-bio">I study how bank failures and financial distress propagate through the spatial network of bank branches to affect local economies. My research combines insights from banking, spatial economics, and corporate finance to understand the real economic consequences of financial instability. I am currently on the job market for the 2026-2027 academic year.</p>
+            <div class="hero-affiliation">University College Dublin &bull; Geary Institute of Public Policy</div>
+
+            <p class="hero-bio">I am a PhD candidate in Economics at University College Dublin. My research examines how the organisational geography of banking groups shapes exposure to financial shocks, regulatory interventions, and credit access. I am on the job market for the 2026&ndash;2027 academic year.</p>
+
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="alert('CV download would be implemented here')">Download CV</button>
+                <a href="papers.html" class="btn btn-primary">View Research</a>
                 <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
             </div>
+
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/samdeegan/" class="social-icon" title="LinkedIn" target="_blank">in</a>
                 <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
                 <a href="https://github.com/Sam-Deegan" class="social-icon" title="GitHub" target="_blank">GH</a>
                 <a href="https://orcid.org/0009-0007-7172-4523" class="social-icon" title="ORCID" target="_blank">iD</a>
-                <a href="mailto:sam.deegan@ucdconnect.ie" class="social-icon" title="Email">✉️</a>
+                <a href="/cdn-cgi/l/email-protection#5023313d7e34353537313e10253334333f3e3e3533247e3935" class="social-icon" title="Email">&#9993;</a>
             </div>
         </div>
     </section>
 
     <!-- Education Section -->
     <section class="section">
-        <h2 class="section-title"><span>🎓</span>Education</h2>
+        <h2 class="section-title"><span>&#127891;</span>Education</h2>
         <div class="education-grid">
             <div class="education-card fade-in">
-                <h3>PhD in Economics</h3>
-                <div class="degree">Banking, Financial Stability, Spatial Economics</div>
-                <div class="institution">University College Dublin</div>
-                <div class="year">Sep 2022 – Sep 2026 (Expected)</div>
+                <div class="degree">PhD in Economics</div>
+                <h3>University College Dublin</h3>
+                <div class="institution">School of Economics</div>
+                <div class="year">Sep 2022 &ndash; Sep 2026 (Expected)</div>
             </div>
             <div class="education-card fade-in">
-                <h3>MSc in Quantitative Economics</h3>
-                <div class="degree">Advanced econometric methods and economic theory</div>
-                <div class="institution">University College Dublin</div>
-                <div class="year">Sep 2020 – Sep 2021</div>
+                <div class="degree">MSc in Quantitative Economics</div>
+                <h3>University College Dublin</h3>
+                <div class="institution">School of Economics</div>
+                <div class="year">Sep 2020 &ndash; Sep 2021</div>
             </div>
             <div class="education-card fade-in">
-                <h3>MBS in Economics and Finance</h3>
-                <div class="degree">Banking sector analysis and financial markets</div>
-                <div class="institution">South East Technological University</div>
-                <div class="year">Sep 2014 – Sep 2015</div>
+                <div class="degree">MBS in Economics and Finance</div>
+                <h3>South East Technological University</h3>
+                <div class="institution">School of Business</div>
+                <div class="year">Sep 2014 &ndash; Sep 2015</div>
             </div>
         </div>
     </section>
 
     <!-- Interests Section -->
     <section class="section">
-        <h2 class="section-title"><span>✨</span>Research Interests</h2>
+        <h2 class="section-title"><span>&#10024;</span>Research Interests</h2>
         <div class="interests-container">
-            <span class="tag">Macroeconomics</span>
-            <span class="tag">Financial Intermediation</span>
-            <span class="tag">Banking & Stability</span>
+            <span class="tag">Banking &amp; Financial Intermediation</span>
+            <span class="tag">Financial Stability &amp; Regulation</span>
             <span class="tag">Spatial Economics</span>
-            <span class="tag">Corporate Finance</span>
+            <span class="tag">Bank Branch Networks</span>
+            <span class="tag">Credit Supply &amp; Transmission</span>
+            <span class="tag">Macroprudential Policy</span>
         </div>
     </section>
 
     <!-- Research Mission -->
     <section class="section">
-        <h2 class="section-title"><span>📊</span>My Research</h2>
+        <h2 class="section-title"><span>&#128202;</span>My Research</h2>
         <div style="background-color: var(--navy-light); border: 1px solid var(--border-color); border-radius: 10px; padding: 2rem; max-width: 900px; margin: 0 auto;">
             <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem;">
-                My research agenda focuses on understanding how distress in the banking sector transmits to the real economy through the spatial network of bank branches. I combine insights from banking, spatial economics, and corporate finance to examine how local communities are affected when banks they depend on experience financial difficulties. My work uses administrative data on bank failures, stress tests, and branch networks to identify causal transmission mechanisms. My job market paper, "Failure in the Margins," examines how local economies are affected by the failure of non-local banks that operate branches in their area. I'm particularly interested in exploring how stress testing frameworks and bank consolidation shape the spatial distribution of credit supply.
+                My research program examines how the organisational geography of banking groups governs the transmission of financial shocks to local economies. Each paper in my portfolio exploits the fact that banking groups operate across multiple local markets through their branch networks, creating predetermined geographic exposure that can be used for causal identification. My job market paper, &ldquo;Failure in the Margins,&rdquo; traces how U.S. bank failures transmit to county-level personal income through multi-county branch footprints. &ldquo;Stress Tests on Main Street&rdquo; maps holding-company stress-test eligibility to counties through deposit networks, finding no evidence of a &ldquo;growth penalty.&rdquo; &ldquo;Consolidation-Driven De-Branching&rdquo; shows that resolution-driven acquisitions compress local branch infrastructure in overlap markets. Together, these papers offer a unified lens on how banking geography shapes economic outcomes across distinct institutional settings.
             </p>
         </div>
     </section>
 
     <!-- Featured Publications -->
     <section class="section">
-        <h2 class="section-title"><span>📚</span>Featured Publications</h2>
+        <h2 class="section-title"><span>&#128218;</span>Featured Papers</h2>
         <div class="publication-grid">
             <div class="publication-card fade-in">
-                <div class="publication-image">📄</div>
+                <div class="publication-image">&#128196;</div>
                 <div class="publication-content">
                     <h3 class="publication-title">Failure in the Margins: Local Exposure to Non-local Bank Distress</h3>
-                    <p class="publication-abstract">This job market paper examines how local economies are affected when non-local banks with branches in their area fail. Using FDIC data on US bank failures, I identify the impact on credit availability and real economic outcomes through spatial branch networks.</p>
+                    <p class="publication-abstract">Maps U.S. bank failures to counties through pre-failure branch footprints. A one-percentage-point increase in failure exposure reduces annual personal income growth by 0.14pp (IV). Income remains 1&ndash;2% below its pre-failure path for approximately four years before gradually recovering.</p>
                     <div class="publication-meta">Deegan, S. (Under Review, 2026)</div>
                     <div class="publication-tags">
                         <span class="tag">Job Market Paper</span>
                         <span class="tag">Banking</span>
                     </div>
                     <div class="publication-links">
-                        <a href="#" class="publication-link">PDF</a>
-                        <a href="#" class="publication-link">SLIDES</a>
+                        <a href="papers.html" class="publication-link">Details</a>
                     </div>
                 </div>
             </div>
 
             <div class="publication-card fade-in">
-                <div class="publication-image">📈</div>
+                <div class="publication-image">&#128200;</div>
                 <div class="publication-content">
                     <h3 class="publication-title">Stress Tests on Main Street: Tracing Holding-Company Exposure Through Branch Networks</h3>
-                    <p class="publication-abstract">This paper examines how stress test results for bank holding companies transmit through their branch networks to affect local lending and real economic outcomes. I use novel data linking stress test results to branch-level outcomes.</p>
+                    <p class="publication-abstract">Tests the &ldquo;growth penalty&rdquo; hypothesis using the introduction of CCAR. Median exposure (21% of county deposits) raises real personal income by 1.52pp cumulatively over four years. Banks increase capital and reduce wholesale funding without cutting loan intensity.</p>
                     <div class="publication-meta">Deegan, S. (Under Review, 2026)</div>
                     <div class="publication-tags">
                         <span class="tag">Under Review</span>
                         <span class="tag">Stress Testing</span>
                     </div>
                     <div class="publication-links">
-                        <a href="#" class="publication-link">PDF</a>
-                        <a href="#" class="publication-link">SLIDES</a>
+                        <a href="papers.html" class="publication-link">Details</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recent Publications -->
+    <!-- All Research -->
     <section class="section">
-        <h2 class="section-title"><span>📑</span>All Research</h2>
+        <h2 class="section-title"><span>&#128209;</span>All Research</h2>
         <div class="publications-list">
             <div class="publication-item fade-in">
                 <div class="publication-citation">
-                    <strong>Deegan, S.</strong> (2026). "Failure in the Margins: Local Exposure to Non-local Bank Distress." Under Review.
+                    <strong>Deegan, S.</strong> (2026). &ldquo;Failure in the Margins: Local Exposure to Non-local Bank Distress.&rdquo; Under Review.
                 </div>
                 <div class="publication-links">
-                    <a href="#" class="publication-link">PDF</a>
-                    <a href="#" class="publication-link">SLIDES</a>
+                    <a href="papers.html" class="publication-link">Details</a>
                 </div>
             </div>
-
             <div class="publication-item fade-in">
                 <div class="publication-citation">
-                    <strong>Deegan, S.</strong> (2026). "Stress Tests on Main Street: Tracing Holding-Company Exposure Through Branch Networks." Under Review.
+                    <strong>Deegan, S.</strong> (2026). &ldquo;Stress Tests on Main Street: Tracing Holding-Company Exposure Through Branch Networks.&rdquo; Under Review.
                 </div>
                 <div class="publication-links">
-                    <a href="#" class="publication-link">PDF</a>
-                    <a href="#" class="publication-link">SLIDES</a>
+                    <a href="papers.html" class="publication-link">Details</a>
                 </div>
             </div>
-
             <div class="publication-item fade-in">
                 <div class="publication-citation">
-                    <strong>Deegan, S.</strong> (2026). "Consolidation-Driven De-Branching: Overlap Effects in Quasi-Exogenous Bank M&A." Under Review.
+                    <strong>Deegan, S.</strong> (2026). &ldquo;Consolidation-Driven De-Branching: Overlap Effects in Quasi-Exogenous Bank M&amp;A.&rdquo; Under Review.
                 </div>
                 <div class="publication-links">
-                    <a href="#" class="publication-link">PDF</a>
+                    <a href="papers.html" class="publication-link">Details</a>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="section">
-        <h2 class="section-title"><span>💬</span>Get in Touch</h2>
+        <h2 class="section-title"><span>&#128172;</span>Get in Touch</h2>
         <div class="contact-content">
             <div class="contact-info">
-                <p>Email: <a href="mailto:sam.deegan@ucdconnect.ie">sam.deegan@ucdconnect.ie</a></p>
+                <p>Email: <a href="/cdn-cgi/l/email-protection#b9cad8d497dddcdcded8d7f9ccdadddad6d7d7dcdacd97d0dc"><span class="__cf_email__" data-cfemail="ef9c8e82c18b8a8a888e81af9a8c8b8c8081818a8c9bc1868a">[email&#160;protected]</span></a></p>
                 <p>Phone: <a href="tel:+353873448748">(+353) 087 344 8748</a></p>
                 <p>Office: Geary Institute of Public Policy, University College Dublin, Dublin 4, Ireland</p>
                 <div class="social-icons" style="margin-top: 2rem;">
                     <a href="https://www.linkedin.com/in/samdeegan/" class="social-icon" title="LinkedIn" target="_blank">in</a>
-                <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
+                    <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
                     <a href="https://github.com/Sam-Deegan" class="social-icon" title="GitHub" target="_blank">GH</a>
                     <a href="https://orcid.org/0009-0007-7172-4523" class="social-icon" title="ORCID" target="_blank">iD</a>
                 </div>
@@ -702,21 +404,16 @@
     <footer>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/samdeegan/" class="social-icon" title="LinkedIn" target="_blank">in</a>
-                <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
+            <a href="https://x.com/Sam_Deegan_Econ" class="social-icon" title="X / Twitter" target="_blank">𝕏</a>
             <a href="https://github.com/Sam-Deegan" class="social-icon" title="GitHub" target="_blank">GH</a>
             <a href="https://orcid.org/0009-0007-7172-4523" class="social-icon" title="ORCID" target="_blank">iD</a>
-            <a href="mailto:sam.deegan@ucdconnect.ie" class="social-icon" title="Email">✉️</a>
+            <a href="/cdn-cgi/l/email-protection#d4a7b5b9fab0b1b1b3b5ba94a1b7b0b7bbbabab1b7a0fabdb1" class="social-icon" title="Email">&#9993;</a>
         </div>
         <p>&copy; 2026 Sam Deegan.</p>
     </footer>
 
-    <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -725,32 +422,14 @@
                 }
             });
         }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => { observer.observe(el); });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Active nav link highlighting
         document.addEventListener('DOMContentLoaded', () => {
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === currentPage) { link.classList.add('active'); }
             });
         });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+        document.querySelectorAll('a[h
